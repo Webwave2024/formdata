@@ -1,11 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Form from "./Form";
+import Certificate from "./Certificate";
 
-import Form from './Form.jsx';
 function App() {
-  
-
   return (
- <Form/>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Form />} />
+        <Route path="/certificate" element={<Certificate />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

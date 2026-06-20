@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Certificate from "./Certificate";
 export default function Form() {
   const [formData, setFormData] = useState({
     name: "",
@@ -10,6 +10,8 @@ export default function Form() {
 const [certificateLink, setCertificateLink] = useState(false);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [certificateName, setCertificateName] = useState("");
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -83,7 +85,7 @@ const handleSubmit = async (e) => {
     body: JSON.stringify(formData),
   }
 );
-
+setCertificateName(formData.name);
 setFormData({
   name: "",
   mobile: "",
@@ -223,7 +225,7 @@ alert("Form Submitted Successfully!");
   {certificateLink && (
   <div className="mt-6 rounded-lg border border-green-300 bg-green-50 p-5 text-center">
     <h3 className="text-lg font-bold text-green-700">
-       Registration Successful!
+      Registration Successful!
     </h3>
 
     <p className="mt-2 text-gray-700">
@@ -232,24 +234,23 @@ alert("Form Submitted Successfully!");
 
     <div className="mt-5 flex justify-center gap-4">
 
-      {/* View Button */}
+      {/* View */}
       <a
-        href="/certificate.jpeg"
+        href={`/certificate?name=${encodeURIComponent(certificateName)}`}
         target="_blank"
         rel="noopener noreferrer"
         className="rounded-lg bg-blue-600 px-5 py-2 text-white hover:bg-blue-700"
       >
-         View Certificate
+        View Certificate
       </a>
 
-      {/* Download Button */}
-      <a
-        href="/certificate.jpeg"
-        download="Certificate.jpeg"
-        className="rounded-lg bg-green-600 px-5 py-2 text-white hover:bg-green-700"
-      >
-         Download Certificate
-      </a>
+      {/* Download */}
+     <a
+  href={`/certificate?name=${encodeURIComponent(certificateName)}&download=true`}
+  className="rounded-lg bg-green-600 px-5 py-2 text-white hover:bg-green-700"
+>
+  Download Certificate
+</a>
 
     </div>
   </div>
