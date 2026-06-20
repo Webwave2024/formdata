@@ -221,21 +221,39 @@ alert("Form Submitted Successfully!");
 
           {/* 👇 Add this here */}
   {certificateLink && (
-    <div className="mt-6 rounded-lg border border-green-300 bg-green-50 p-4 text-center">
-      <p className="mb-2 font-semibold text-green-700">
-         Registration Successful!
-      </p>
+  <div className="mt-6 rounded-lg border border-green-300 bg-green-50 p-5 text-center">
+    <h3 className="text-lg font-bold text-green-700">
+       Registration Successful!
+    </h3>
 
+    <p className="mt-2 text-gray-700">
+      Your certificate is ready.
+    </p>
+
+    <div className="mt-5 flex justify-center gap-4">
+
+      {/* View Button */}
       <a
         href="/certificate.jpeg"
         target="_blank"
         rel="noopener noreferrer"
-        className="font-semibold text-blue-600 underline hover:text-blue-800"
+        className="rounded-lg bg-blue-600 px-5 py-2 text-white hover:bg-blue-700"
       >
-        Click here to view your certificate
+         View Certificate
       </a>
+
+      {/* Download Button */}
+      <a
+        href="/certificate.jpeg"
+        download="Certificate.jpeg"
+        className="rounded-lg bg-green-600 px-5 py-2 text-white hover:bg-green-700"
+      >
+         Download Certificate
+      </a>
+
     </div>
-  )}
+  </div>
+)}
         </form>
       </div>
     </div>
