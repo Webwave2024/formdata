@@ -21,29 +21,43 @@ export default function Certificate() {
 
 
   return (
-    <div className="flex justify-center p-10">
-      <div
-        ref={certificateRef}
-        className="relative w-[1100px]"
-      >
+   <div className="min-h-screen flex items-center justify-center bg-gray-100">
+  <div
+    ref={certificateRef}
+    className="relative w-full max-w-[1100px] px-4"
+  >
+    <div className="flex justify-center">
     <img
-  src="/certificate.jpeg"
-  alt="Certificate"
-  className="w-full"
-  onLoad={() => {
+      src="/certificate.jpeg"
+      className="block w-full h-auto mx-auto"
+      alt="Certificate"
+       onLoad={() => {
     if (download === "true") {
       setTimeout(downloadCertificate, 300);
     }
   }}
-/>
-
-        <h1
-          className="absolute left-1/2 -translate-x-1/2 text-4xl font-bold text-green-800"
-          style={{ top: "340px" }}
-        >
-          {name}
-        </h1>
-      </div>
+    />
     </div>
+
+    <h1
+      className="
+        absolute
+        left-1/2
+        -translate-x-1/2
+        top-[43%]
+        text-[16px]
+        sm:text-[22px]
+        md:text-[32px]
+        lg:text-[42px]
+        font-bold
+        text-green-800
+      "
+    >
+      {name}
+    </h1>
+  </div>
+</div>
   );
 }
+
+
